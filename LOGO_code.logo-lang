@@ -1,0 +1,194 @@
+; --- Logo LSP Test File ---
+; This file covers all functions provided in the documentation.
+
+; 1. Procedure and Variable Definition
+to TEST_VARIABLES
+  make "globalVar 100
+  name 200 "namedVar
+  localmake "localVar 50
+  show :globalVar
+  show thing "namedVar
+  show :localVar
+end
+
+define "STAR [[n] [repeat 5 [fd :n rt 144]]]
+
+; 2. Turtle Motion
+to TEST_MOTION
+  forward 50
+  fd 50
+  back 20
+  bk 20
+  left 90
+  lt 45
+  right 90
+  rt 45
+  home
+  setx 100
+  sety -100
+  setxy 50 50
+  setpos [20 30]
+  setheading 180
+  seth 0
+  arc 360 10
+  ellipse 40 60
+end
+
+; 3. Turtle Motion Queries
+to TEST_MOTION_QUERIES
+  show pos
+  show xcor
+  show ycor
+  show heading
+  show towards [0 0]
+end
+
+; 4. Turtle and Window Control
+to TEST_CONTROL
+  hideturtle
+  ht
+  showturtle
+  st
+  clean
+  cs
+  clearscreen
+  
+  ; Fill examples
+  pu setxy 10 10 pd
+  fill
+  
+  filled "red [repeat 4 [fd 20 rt 90]]
+  
+  label "Hello_Logo
+  setlabelheight 20
+  label [Multiple Words]
+  
+  wrap
+  window
+  fence
+end
+
+; 5. Turtle and Window Queries
+to TEST_WINDOW_QUERIES
+  show shown?
+  show shownp
+  show labelsize
+end
+
+; 6. Pen and Background Control
+to TEST_PEN
+  penup
+  pu
+  pendown
+  pd
+  setcolor 4
+  setpencolor 1
+  setcolor [100 200 100]
+  setwidth 5
+  setpensize 2
+  changeshape 1
+  csh "dog
+end
+
+; 7. Pen Queries
+to TEST_PEN_QUERIES
+  show pendown?
+  show pendownp
+  show pencolor
+  show pc
+  show pensize
+end
+
+; 8. Control Structures
+to TEST_STRUCTURES
+  repeat 4 [ fd 10 rt 90 ]
+  
+  for [i 1 5 1] [ print :i ]
+  
+  print repcount
+  
+  if 1 < 2 [ print "True ]
+  ifelse 1 > 2 [ print "Yes ] [ print "No ]
+  
+  test 5 = 5
+  iftrue [ print "Equal ]
+  iffalse [ print "NotEqual ]
+  
+  wait 10
+  
+  dotimes [j 3] [ show :j ]
+  
+  make "k 0
+  do.while [ make "k :k + 1 show :k ] :k < 3
+  
+  while :k > 0 [ make "k :k - 1 show :k ]
+  
+  do.until [ make "k :k + 1 show :k ] :k = 3
+  
+  until :k = 0 [ make "k :k - 1 show :k ]
+end
+
+; 9. Lists
+to TEST_LISTS
+  make "mylist (list "a "b "c)
+  show first :mylist
+  show butfirst :mylist
+  show last :mylist
+  show butlast :mylist
+  show item 2 :mylist
+  show pick :mylist
+end
+
+; 10. Math
+to TEST_MATH
+  show sum 10 20
+  show minus 50 10
+  show random 100
+  show modulo 10 3
+  show power 2 8
+end
+
+; 11. Receivers (Note: these usually block for input)
+to TEST_RECEIVERS
+  ; make "inWord (readword [Enter word:])
+  ; make "inList (readlist [Enter list:])
+end
+
+; 12. Predicates
+to TEST_PREDICATES
+  show word? "hello
+
+  show list? [1 2]
+  show listp []
+  show array? array 2
+  show arrayp array 5
+  show number? 42
+  show numberp 3.14
+  show empty? ""
+  show emptyp []
+  show equal? 1 1
+  show equalp "a "a
+  show notequal? 1 2
+  show notequalp "a "b
+  show before? "apple "banana
+  show beforep "x "y
+  show substring? "log "logo
+  show substringp "ace "space
+end
+
+; Main execution
+TEST_VARIABLES
+TEST_MOTION
+TEST_MOTION_QUERIES
+TEST_CONTROL
+TEST_WINDOW_QUERIES
+TEST_PEN
+TEST_PEN_QUERIES
+TEST_STRUCTURES
+TEST_LISTS
+TEST_MATH
+TEST_PREDICATES
+
+show def "STAR
+
+bye
